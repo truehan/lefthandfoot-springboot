@@ -14,7 +14,7 @@ public class TextMessageRequest {
     @XmlElement(name = "FromUserName")
     private String fromUserName;
     @XmlElement(name = "CreateTime")
-    private String createTime;
+    private Long createTime;
     @XmlElement(name = "MsgType")
     private String msgType;
     @XmlElement(name = "PicUrl")
@@ -22,7 +22,7 @@ public class TextMessageRequest {
     @XmlElement(name = "MediaId")
     private String mediaId;
     @XmlElement(name = "MsgId")
-    private String msgId;
+    private Long msgId;
     @XmlElement(name = "MsgDataId")
     private String msgDataId;
     @XmlElement(name = "Idx")
