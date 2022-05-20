@@ -1,5 +1,6 @@
 package com.tencent.wxcloudrun.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.tencent.wxcloudrun.config.ApiResponse;
@@ -20,15 +21,13 @@ import java.util.List;
  * counter控制器
  */
 @RestController
-
+@Slf4j
 public class CounterController {
 
   final CounterService counterService;
-  final Logger logger;
 
   public CounterController(@Autowired CounterService counterService) {
     this.counterService = counterService;
-    this.logger = LoggerFactory.getLogger(CounterController.class);
   }
 
 
@@ -38,7 +37,7 @@ public class CounterController {
    */
   @GetMapping(value = "/api/count")
   ApiResponse get() {
-    logger.info("/api/count get request");
+    log.info("/api/count get request");
     Optional<Counter> counter = counterService.getCounter(1);
     Integer count = 0;
     if (counter.isPresent()) {
@@ -56,11 +55,11 @@ public class CounterController {
    */
   @PostMapping(value = "/api/count")
   ApiResponse create(@RequestBody CounterRequest request) {
-    logger.info("/api/count post request, action: {}", request.getAction());
+    log.info("/api/count post request, action: {}", request.getAction());
 
     Optional<Counter> curCounter = counterService.getCounter(1);
     if (request.getAction().equals("inc")) {
-      Integer count = 1;
+      Integer count = 99999999;
       if (curCounter.isPresent()) {
         count += curCounter.get().getCount();
       }
