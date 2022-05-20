@@ -45,9 +45,9 @@ public class CounterController {
     }
 
     @PostMapping("text")
-    public String text(@RequestBody TextMessageRequest text) {
+    public ApiResponse text(@RequestBody TextMessageRequest text) {
         log.info(text.toString());
-        return "0";
+        return ApiResponse.ok(text);
     }
 
 }
