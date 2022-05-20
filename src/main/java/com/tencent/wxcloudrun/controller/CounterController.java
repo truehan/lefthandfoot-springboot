@@ -86,6 +86,7 @@ public class CounterController {
      */
     @RequestMapping(value = "token")
     boolean token() {
+        System.out.println(true+"sdfcsdaf sdaf jhbsdafkjsdbfhjsadfkjhbsda fjkbsdbf jhdsb");
         return true;
     }
 
