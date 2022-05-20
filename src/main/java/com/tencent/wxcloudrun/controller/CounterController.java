@@ -2,6 +2,7 @@ package com.tencent.wxcloudrun.controller;
 
 import com.tencent.wxcloudrun.config.ApiResponse;
 import com.tencent.wxcloudrun.dto.CounterRequest;
+import com.tencent.wxcloudrun.dto.TextMessageRequest;
 import com.tencent.wxcloudrun.model.Counter;
 import com.tencent.wxcloudrun.service.CounterService;
 import lombok.RequiredArgsConstructor;
@@ -44,8 +45,8 @@ public class CounterController {
     }
 
     @PostMapping("text")
-    public String text(@RequestBody String text) {
-        log.info(text);
+    public String text(@RequestBody TextMessageRequest text) {
+        log.info(text.toString());
         return "0";
     }
 
