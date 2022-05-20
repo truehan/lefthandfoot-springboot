@@ -80,20 +80,20 @@ public class CounterController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/wxServerValdation")
-    public String wxServerValdation(String signature, String timestamp, String nonce, String echostr){
-        if (ObjectUtils.isEmpty(signature)|| ObjectUtils.isEmpty(timestamp) || ObjectUtils.isEmpty(nonce) || ObjectUtils.isEmpty(echostr)){
+    @RequestMapping("valdation")
+    public String wxServerValdation(String signature, String timestamp, String nonce, String echostr) {
+        if (ObjectUtils.isEmpty(signature) || ObjectUtils.isEmpty(timestamp) || ObjectUtils.isEmpty(nonce) || ObjectUtils.isEmpty(echostr)) {
             return "";
         }
-        ArrayList<String> list=new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<String>();
         list.add(nonce);
         list.add(timestamp);
         list.add("NvJEBK12");//这是第5步中你设置的Token
         Collections.sort(list);
-        String sha1Singnature = DigestUtils.sha1Hex(list.get(0)+list.get(1)+list.get(2));
-        if (sha1Singnature.equals(signature)){
+        String sha1Singnature = DigestUtils.sha1Hex(list.get(0) + list.get(1) + list.get(2));
+        if (sha1Singnature.equals(signature)) {
             return echostr;
-        }else {
+        } else {
             return "";
         }
 
