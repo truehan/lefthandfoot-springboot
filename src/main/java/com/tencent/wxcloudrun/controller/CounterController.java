@@ -84,7 +84,7 @@ public class CounterController {
      *
      * @return API response json
      */
-    @RequestMapping(value = "token")
+    @GetMapping(value = "token")
     boolean token() {
         System.out.println(true+"sdfcsdaf sdaf jhbsdafkjsdbfhjsadfkjhbsda fjkbsdbf jhdsb");
         return true;
